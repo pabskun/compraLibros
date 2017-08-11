@@ -1,7 +1,24 @@
 //Se llama a la funcion que muestra la tabla de clientes
 llenarTablaClientes();
+document.querySelector('#btnRegistrarCliente').addEventListener('click', obtenerDatosRegistro);
+function obtenerDatosRegistro(){
+  var aInfoCliente = [];
+  var nTipoCliente = document.querySelector('#txtTipoCliente').value;
+  var sIdentificacion = document.querySelector('#txtIdentificacion').value;
+  var sNombre1 = document.querySelector('#txtNombre1').value;
+  var sNombre2 = document.querySelector('#txtNombre2').value;
+  var sApellido1 = document.querySelector('#txtApellido1').value;
+  var sApellido2 = document.querySelector('#txtApellido2').value;
+  var nCantDinero = document.querySelector('#txtCantDinero').value;
+  var sCorreo = document.querySelector('#txtCorreo').value;
+  var sContrasenna = document.querySelector('#txtContrasenna').value;
 
+  aInfoCliente.push(nTipoCliente,sIdentificacion,sNombre1,sNombre2,sApellido1,sApellido2,nCantDinero,sCorreo,sContrasenna);
 
+  registrarCliente(aInfoCliente);
+  llenarTablaClientes();
+
+}
 
 function llenarTablaClientes(){
   var listaClientes = obtenerClientes();//llama a la función de la lógica de negocios obtenerClientes que retorna la matriz de clientes

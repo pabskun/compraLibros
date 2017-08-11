@@ -12,3 +12,8 @@ function obtenerClientes(){
   }
   return listaClientes;
 }
+function registrarCliente(paInfoCliente){
+  var listaClientes = obtenerClientes();
+  listaClientes.push(paInfoCliente);
+  localStorage.setItem('listaClientesLS', JSON.stringify(listaClientes));
+}
