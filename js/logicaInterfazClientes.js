@@ -13,7 +13,7 @@ function obtenerDatosRegistro(){
   var sCorreo = document.querySelector('#txtCorreo').value;
   var sContrasenna = document.querySelector('#txtContrasenna').value;
 
-  aInfoCliente.push(nTipoCliente,sIdentificacion,sNombre1,sNombre2,sApellido1,sApellido2,nCantDinero,sCorreo,sContrasenna);
+  aInfoCliente.push(nTipoCliente, sIdentificacion,sNombre1,sNombre2,sApellido1,sApellido2,nCantDinero,sCorreo,sContrasenna);
 
   registrarCliente(aInfoCliente);
   llenarTablaClientes();
