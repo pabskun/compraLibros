@@ -1,7 +1,10 @@
 document.querySelector('#btnAgregarAlCarrito').addEventListener('click', agregarLibroAlCarrito);
+document.querySelector('#btnComprar').addEventListener('click', realizarCompra);
 var selectLibros = document.querySelector('#sltLibros');
+var aListaLibrosAComprar = [];
 llenarClientes();
 llenarLibros();
+llenarTablaCompras();
 
 function llenarClientes(){
   //Se llama a la función obtenerClientes que se encuentra dentro de la logicaClientes
@@ -69,6 +72,35 @@ function agregarLibroAlCarrito(){
   var libroSeleccionado = obtenerLibroPorIsbn(sIsbnLibroSeleccionado);
   var sNombreLibroSeleccionado = libroSeleccionado[1];
 
-  document.querySelector('#txtLibrosEnCarrito').value += sIsbnLibroSeleccionado + ' ' + sNombreLibroSeleccionado;
+  document.querySelector('#txtLibrosEnCarrito').value += sIsbnLibroSeleccionado + ' ' + sNombreLibroSeleccionado +'\n'; // '\n' deja un salto de linea
+  aListaLibrosAComprar.push(libroSeleccionado);
 
+}
+function realizarCompra(){
+  var selectClientes = document.querySelector('#sltClientes');
+  var idCliente = selectClientes.value;
+
+  procesarCompra(idCliente,aListaLibrosAComprar);
+  llenarTablaCompras();
+}
+function llenarTablaCompras(){
+  var listaCompras = obtenerListaCompras();
+  var tbody = document.querySelector('#tblCompras tbody');
+  tbody.innerHTML = '';
+
+  for(var i = 0; i < listaCompras.length;i++){
+    var fila = tbody.insertRow(i);
+    var celdaCliente = fila.insertCell();
+    var celdaLibros = fila.insertCell();
+    var celdaFecha = fila.insertCell();
+
+    var listaLibrosComprados = listaCompras[i][1];
+    celdaCliente.innerHTML = listaCompras[i][0];
+
+    for (var j = 0; j < listaLibrosComprados.length; j++) {
+      celdaLibros.innerHTML += listaLibrosComprados[j][1] + ',';
+    }
+
+    celdaFecha.innerHTML = listaCompras[i][2];
+  }
 }

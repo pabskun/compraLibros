@@ -1,0 +1,17 @@
+body{
+  font-family: verdana;
+}
+#btnAgregarAlCarrito{
+  display: inline-block;
+  background: #34495e;
+  color: #fff;
+  padding: 10px 5px;
+}
+#btnAgregarAlCarrito span{
+  color:#f1c40f;
+  margin-right: 5px;
+}
+#btnAgregarAlCarrito:hover{
+  cursor: pointer;
+  background: #2980b9;
+}

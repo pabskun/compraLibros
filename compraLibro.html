@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Compra de libros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/compra.css">
   </head>
   <body>
     <form>
@@ -15,12 +17,24 @@
       <select id="sltLibros">
 
       </select>
-      <input type="button" value="Agregar al carrito" id="btnAgregarAlCarrito">
+      <a id="btnAgregarAlCarrito"> <span class="fa fa-cart-plus"></span>Agregar al carrito</a>
 
       <textarea id="txtLibrosEnCarrito"></textarea>
 
       <input type="button" value="Comprar" id ="btnComprar">
     </form>
+    <table id="tblCompras">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Libros</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
     <script src="js/logicaNegociosClientes.js"></script>
     <script src="js/logicaNegociosLibros.js"></script>
     <script src="js/logicaNegociosCompra.js"></script>
